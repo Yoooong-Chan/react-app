@@ -62,9 +62,7 @@ function App() {
     });
     nextId.current += 1;
   };
-  const onRemove = (id) => {
-    setUsers(users.filter((user) => user.id !== id));
-  }; // 파라미터로 전달받은 id가 user.id랑 다르면 놔두고, 같으면 삭제
+
   return (
     <div>
       <CreateUser
@@ -73,7 +71,7 @@ function App() {
         onChange={onChange}
         onCreate={onCreate}
       />
-      <ArraySample users={users} onRemove={onRemove} />
+      <ArraySample users={users} />;
     </div>
   );
 }
