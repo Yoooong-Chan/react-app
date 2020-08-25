@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 
 //구조 => name : value / name을 ul에 표현하려면 value값이 필요
 
@@ -10,7 +10,7 @@ export default function InputSample() {
     // 각 input의 name을통해서 id처럼 특정한곳을위해서
     // 사용할수있음
   });
-
+  const nameInput = useRef();
   const {name, nickname} = inputs;
 
   const onChange = (e) => {
@@ -28,6 +28,7 @@ export default function InputSample() {
       name: '',
       nickname: '',
     });
+    nameInput.current.focus();
   };
   return (
     <div>
@@ -37,6 +38,7 @@ export default function InputSample() {
         placeholder="닉네임"
         onChange={onChange}
         value={nickname}
+        ref={nameInput}
       />
 
       <button onClick={onReset}>초기화</button>
